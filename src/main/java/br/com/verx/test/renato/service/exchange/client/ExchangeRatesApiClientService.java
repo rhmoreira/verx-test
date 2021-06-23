@@ -16,7 +16,7 @@ import br.com.verx.test.renato.service.exchange.ExchangeCurrenciesService;
 import br.com.verx.test.renato.service.exchange.ExchangeRatesService;
 
 @Service("exchangeRatesApiService")
-public class ExchangeRatesApiService implements ExchangeRatesService, ExchangeCurrenciesService{
+public class ExchangeRatesApiClientService implements ExchangeRatesService, ExchangeCurrenciesService{
 	
 	private static final String API_URL = "http://api.exchangeratesapi.io";
 	
