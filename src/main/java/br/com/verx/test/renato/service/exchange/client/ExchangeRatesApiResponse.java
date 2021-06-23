@@ -3,20 +3,13 @@ package br.com.verx.test.renato.service.exchange.client;
 import java.util.Date;
 import java.util.Map;
 
-public class ExchangeRatesApiResponse {
+public class ExchangeRatesApiResponse extends AbstractExchangeRatesApiResponse {
 
-	private boolean success;
 	private long timestamp;
 	private String base;
 	private Date date;
 	private Map<String, Double> rates;
 	
-	public boolean isSuccess() {
-		return success;
-	}
-	public void setSuccess(boolean success) {
-		this.success = success;
-	}
 	public long getTimestamp() {
 		return timestamp;
 	}

@@ -2,14 +2,14 @@ package br.com.verx.test.renato.service.exchange.client;
 
 import java.util.Map;
 
-public class ExchangeRatesApiSymbolsResponse {
+public class ExchangeRatesApiSymbolsResponse extends AbstractExchangeRatesApiResponse{
 
-	private Map<String, String> symbols;
+	private Map<String, Object> symbols;
 
-	public Map<String, String> getSymbols() {
+	public Map<String, Object> getSymbols() {
 		return symbols;
 	}
-	public void setSymbols(Map<String, String> symbols) {
+	public void setSymbols(Map<String, Object> symbols) {
 		this.symbols = symbols;
 	}
 }

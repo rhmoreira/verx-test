@@ -18,6 +18,26 @@ public class ExchangeTransaction {
 	private Double exchangeRate;
 	private LocalDateTime date;
 	
+	
+	public ExchangeTransaction(String userId, String srcCurrency, Double amount, String targetCurrency,
+			Double exchangeRate) {
+		this(userId, srcCurrency, amount, targetCurrency, exchangeRate, null);
+	}
+	
+	public ExchangeTransaction(String userId, String srcCurrency, Double amount, String targetCurrency,
+			Double exchangeRate, LocalDateTime date) {
+		super();
+		this.userId = userId;
+		this.srcCurrency = srcCurrency;
+		this.amount = amount;
+		this.targetCurrency = targetCurrency;
+		this.exchangeRate = exchangeRate;
+		this.date = date;
+	}
+	
+	public ExchangeTransaction() {
+	}
+	
 	public ObjectId getId() {
 		return id;
 	}
