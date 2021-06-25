@@ -7,6 +7,7 @@ public enum ErrorType {
 	SERVICE_REQ_FAILURE("client_request_error", HttpStatus.INTERNAL_SERVER_ERROR),
 	
 	USER_NOT_FOUND("user_not_found", HttpStatus.NOT_FOUND),
+	TRANSACTIONS_NOT_FOUND("transactions_not_found", HttpStatus.NOT_FOUND),
 	
 	INVALID_CURRENCY("invalid_currency", HttpStatus.BAD_REQUEST),
 	
