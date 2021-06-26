@@ -1,5 +1,7 @@
 package br.com.verx.challenge.renato.service.exchange.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
@@ -15,6 +17,8 @@ import br.com.verx.challenge.renato.service.exchange.client.CurrencySymbolsValid
 @Service
 @Primary
 public class ExchangeRatesServiceFacade implements ExchangeRatesService {
+	
+	private static Logger log = LoggerFactory.getLogger(ExchangeRatesServiceFacade.class);
 	
 	private ExchangeRatesService ratesService;
 	private CurrencySymbolsValidator currencyValidator;
@@ -34,12 +38,14 @@ public class ExchangeRatesServiceFacade implements ExchangeRatesService {
 
 	@Override
 	public ExchangeTransaction convert(String srcCurrency, String targetCurrency, Double amount, String idUser) throws ExchangeException {
-		
 		currencyValidator.validateSymbol(srcCurrency);
 		currencyValidator.validateSymbol(targetCurrency);
 		
 		ExchangeTransaction exchangeTransaction = ratesService.convert(srcCurrency, targetCurrency, amount, idUser);
+		CurrencyExchange currencyExchange = new CurrencyExchange(exchangeRepo.saveTransaction(exchangeTransaction));
 		
-		return new CurrencyExchange(exchangeRepo.saveTransaction(exchangeTransaction));
+		log.info("new Exchange Transaction => {}", currencyExchange);
+		
+		return currencyExchange;
 	}
 }

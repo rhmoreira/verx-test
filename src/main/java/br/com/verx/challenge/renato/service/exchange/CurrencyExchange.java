@@ -27,4 +27,17 @@ public class CurrencyExchange extends ExchangeTransaction{
 	public void setExchangeAmount(Double exchangeAmount) {
 		this.exchangeAmount = exchangeAmount;
 	}
+	
+	public String format() {
+		return 
+			String
+				.format("id[%s], src[%s], target[%s], amnt[%d], rate[%s], exch[%d]", 
+					getId().toHexString(),
+					getSrcCurrency(),
+					getTargetCurrency(),
+					getAmount(),
+					getExchangeRate(),
+					getExchangeAmount()
+				);
+	}
 }

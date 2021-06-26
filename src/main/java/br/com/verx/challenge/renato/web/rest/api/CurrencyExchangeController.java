@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +23,8 @@ import br.com.verx.challenge.renato.service.exchange.ExchangeRatesService;
 @RestController
 @RequestMapping(produces=MediaType.APPLICATION_JSON_VALUE)
 public class CurrencyExchangeController {
+	
+	private static Logger log = LoggerFactory.getLogger(CurrencyExchangeController.class);
 
 	private ExchangeRatesService exchangeService;
 	private ExchangeRatesTransactionRepository transactionRepository;
@@ -43,6 +47,8 @@ public class CurrencyExchangeController {
 			@PathVariable(name = "amount") Double amount,
 			@PathVariable(name = "idUser") String idUser) throws ExchangeException {
 		
+		log.debug("Processing convert request src={}, target={}, amount={}, user={}", src.orElse("EUR"), target, amount, idUser);
+		
 		ExchangeTransaction result = exchangeService.convert(src.orElse("EUR"), target, amount, idUser);
 		return result;
 	}
@@ -51,6 +57,8 @@ public class CurrencyExchangeController {
 	public List<ExchangeTransaction> listTransactions(
 			@PathVariable(name = "idUser") String idUser) throws ExchangeException {
 		
+		log.debug("Processing transactions query for user={}", idUser);
+		
 		List<ExchangeTransaction> userTransactions = 
 				transactionRepository
 					.listByUser(idUser)
@@ -58,7 +66,9 @@ public class CurrencyExchangeController {
 					.map(CurrencyExchange::new)
 					.collect(Collectors.toList());
 		
-		if (userTransactions.isEmpty())
+		log.debug("{} transaction(s) found for user={}", userTransactions.size(), idUser);
+		
+		if (userTransactions.isEmpty())			
 			throw new ExchangeException("No transactions found for user [" + idUser + "]", ErrorType.TRANSACTIONS_NOT_FOUND);
 		else
 			return userTransactions;
