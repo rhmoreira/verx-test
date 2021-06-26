@@ -5,8 +5,8 @@
 ## API
 As a requirement, 2 http endpoints were created:
 ```
-GET - <host>/convert/{srcCurrency}/{targetCurrency}/{amount}/{idUser}
-GET - <host>/transaction/{idUser}
+GET - <host>/api/convert/{srcCurrency}/{targetCurrency}/{amount}/{idUser}
+GET - <host>/api/transaction/{idUser}
 ```
 The running application can be accessed publicly on https://verxexchangerate.herokuapp.com/
 
