@@ -7,6 +7,7 @@ As a requirement, 2 http endpoints were created:
 ```
 GET - <host>/convert/{srcCurrency}/{targetCurrency}/{amount}/{idUser}
 GET - <host>/transaction/{idUser}
+```
 
 The results must provide the following data structure in JSON format as a response
 ``` json
