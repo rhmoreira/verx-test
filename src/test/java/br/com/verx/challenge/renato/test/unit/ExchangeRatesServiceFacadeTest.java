@@ -17,6 +17,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -29,11 +30,11 @@ import br.com.verx.challenge.renato.service.exchange.ExchangeRatesService;
 import br.com.verx.challenge.renato.service.exchange.client.CurrencySymbolsValidator;
 import br.com.verx.challenge.renato.service.exchange.client.ExchangeRatesApiClientService;
 import br.com.verx.challenge.renato.service.exchange.impl.ExchangeRatesServiceFacade;
-import br.com.verx.challenge.renato.test.AbstractChallengeTest;
 
 @RunWith(SpringRunner.class)
+@SpringBootTest
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class ExchangeRatesServiceFacadeTest extends AbstractChallengeTest {
+public class ExchangeRatesServiceFacadeTest {
 	
 	private static final String SRC_CURRENCY = "USD";
 	private static final String TARGET_CURRENCY = "BRL";
