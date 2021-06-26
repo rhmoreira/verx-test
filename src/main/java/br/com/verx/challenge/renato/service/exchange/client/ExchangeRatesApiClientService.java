@@ -29,7 +29,7 @@ public class ExchangeRatesApiClientService implements ExchangeRatesService, Exch
 	private static final String CURRENCY_URI = "/latest";
 	private static final String SYMBOLS_URI = "/symbols";
 	
-	private static final String ACCESS_KEY = "871e2333c0ca71edbbcee3c972c7dd09";
+	private static final String ACCESS_KEY = "1f68a5f2ca28a58c0face02f98534e81";
 	
 	@Override
 	public ExchangeTransaction convert(String srcCurrency, String targetCurrency, Double amount, String idUser) throws ExchangeException  {
