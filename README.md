@@ -51,7 +51,7 @@ The technologies behind it are:
  
  ### Hows and Whys
  
- As mentioned above, this project was written using spring boot. The reason is because it is currently the best alternative for fast and small projects, that provides a wide variety of tools, frameworks, configurations and ease of use.
+ As mentioned above, this project was written using spring boot. The reason is because it is currently the best alternative for fast and small/simple solutions, that provides a wide variety of tools, frameworks, configurations and ease of use.
  
  The database used to accomplish the requirement is the embedded mongodb. There were specific demands concerning the database type. The only demand is that the database must be embedded.
  
