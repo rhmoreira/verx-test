@@ -17,6 +17,9 @@ public class CurrencyExchange extends ExchangeTransaction{
 		
 		this.exchangeAmount = getAmount() * getExchangeRate();
 	}
+	
+	public CurrencyExchange() {
+	}
 
 	public Double getExchangeAmount() {
 		return exchangeAmount;
