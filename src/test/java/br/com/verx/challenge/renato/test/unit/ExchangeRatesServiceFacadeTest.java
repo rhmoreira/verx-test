@@ -21,6 +21,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import br.com.verx.challenge.renato.Bootstrap;
 import br.com.verx.challenge.renato.ErrorType;
 import br.com.verx.challenge.renato.ExchangeException;
 import br.com.verx.challenge.renato.repo.ExchangeRatesTransactionRepository;
@@ -29,11 +30,10 @@ import br.com.verx.challenge.renato.service.exchange.CurrencyExchange;
 import br.com.verx.challenge.renato.service.exchange.ExchangeRatesService;
 import br.com.verx.challenge.renato.service.exchange.client.CurrencySymbolsValidator;
 import br.com.verx.challenge.renato.service.exchange.client.ExchangeRatesApiClientService;
-import br.com.verx.challenge.renato.service.exchange.impl.ExchangeRatesServiceFacade;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@SpringBootTest(classes=Bootstrap.class)
 public class ExchangeRatesServiceFacadeTest {
 	
 	private static final String SRC_CURRENCY = "USD";
@@ -51,6 +51,7 @@ public class ExchangeRatesServiceFacadeTest {
 	@Autowired
 	private CurrencySymbolsValidator currencyValidator;
 	
+	@Autowired
 	private ExchangeRatesService exchangeServiceFacade;
 	
 	private boolean setupDone;
@@ -66,7 +67,6 @@ public class ExchangeRatesServiceFacadeTest {
 				.thenReturn(new ExchangeTransaction(ID_USER, SRC_CURRENCY, AMOUNT, TARGET_CURRENCY, EXCHANGE_RATE));
 			
 			currencyValidator.afterPropertiesSet();
-			this.exchangeServiceFacade = new ExchangeRatesServiceFacade(exchangeService, currencyValidator, transactionRepo);
 			setupDone = true;
 		}
 	}

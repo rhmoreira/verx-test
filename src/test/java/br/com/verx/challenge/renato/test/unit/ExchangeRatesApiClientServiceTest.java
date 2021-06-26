@@ -12,17 +12,19 @@ import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import br.com.verx.challenge.renato.Bootstrap;
 import br.com.verx.challenge.renato.ExchangeException;
 import br.com.verx.challenge.renato.repo.domain.ExchangeTransaction;
 import br.com.verx.challenge.renato.service.exchange.ExchangeCurrenciesService;
 import br.com.verx.challenge.renato.service.exchange.ExchangeRatesService;
-import br.com.verx.challenge.renato.test.AbstractChallengeTest;
 
 @RunWith(SpringRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class ExchangeRatesApiClientServiceTest extends AbstractChallengeTest{
+@SpringBootTest(classes=Bootstrap.class)
+public class ExchangeRatesApiClientServiceTest {
 	
 	private static final String SRC_CURRENCY = "GBP";
 	private static final String TARGET_CURRENCY = "BRL";
