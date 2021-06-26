@@ -13,6 +13,7 @@ The running application can be accessed publicly on https://verxexchangerate.her
 Test it out!
 
 https://verxexchangerate.herokuapp.com/api/convert/USD/BRL/550/renato
+
 https://verxexchangerate.herokuapp.com/api/transaction/renato
 
 The results must provide the following data structure in JSON format as a response
