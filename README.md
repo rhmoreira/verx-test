@@ -8,6 +8,12 @@ As a requirement, 2 http endpoints were created:
 GET - <host>/convert/{srcCurrency}/{targetCurrency}/{amount}/{idUser}
 GET - <host>/transaction/{idUser}
 ```
+The running application can be accessed publicly on https://verxexchangerate.herokuapp.com/
+
+Test it out!
+
+https://verxexchangerate.herokuapp.com/api/convert/USD/BRL/550/renato
+https://verxexchangerate.herokuapp.com/api/transaction/renato
 
 The results must provide the following data structure in JSON format as a response
 ``` json
@@ -18,15 +24,15 @@ The results must provide the following data structure in JSON format as a respon
    "amount":13000.0,
    "targetCurrency":"BRL",
    "exchangeRate":4.934504570169485,
-   "date":null,
+   "date": "2021-06-26 19:29",
    "exchangeAmount":64148.55941220331
 }
 ```
 
 ## Must haves
 
-* Internal logic shall be under unit test
-* Functionality shall be under integration test
+* Internal logic must be under unit test
+* Functionality must be under integration test
 * Clear and "to the point" readme on how to comsume
 
 # The Project
