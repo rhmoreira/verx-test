@@ -21,7 +21,7 @@ public class ExchangeTransaction {
 	
 	public ExchangeTransaction(String userId, String srcCurrency, Double amount, String targetCurrency,
 			Double exchangeRate) {
-		this(userId, srcCurrency, amount, targetCurrency, exchangeRate, null);
+		this(userId, srcCurrency, amount, targetCurrency, exchangeRate, LocalDateTime.now());
 	}
 	
 	public ExchangeTransaction(String userId, String srcCurrency, Double amount, String targetCurrency,
