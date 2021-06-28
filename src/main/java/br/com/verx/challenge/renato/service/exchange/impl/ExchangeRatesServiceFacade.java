@@ -44,7 +44,7 @@ public class ExchangeRatesServiceFacade implements ExchangeRatesService {
 		ExchangeTransaction exchangeTransaction = ratesService.convert(srcCurrency, targetCurrency, amount, idUser);
 		CurrencyExchange currencyExchange = new CurrencyExchange(exchangeRepo.saveTransaction(exchangeTransaction));
 		
-		log.info("new Exchange Transaction => {}", currencyExchange);
+		log.info("new Exchange Transaction => {}", currencyExchange.format());
 		
 		return currencyExchange;
 	}
